@@ -1,0 +1,58 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Assets/Pac_Person.gd" type="Script" id=1]
+[ext_resource path="res://Sounds/Ur_ded_bro.wav" type="AudioStream" id=2]
+[ext_resource path="res://Art/Pac_Person1.png" type="Texture" id=3]
+[ext_resource path="res://Art/Pac_Person3.png" type="Texture" id=4]
+[ext_resource path="res://Art/Pac_Person2.png" type="Texture" id=5]
+[ext_resource path="res://Art/Pac_Person4.png" type="Texture" id=6]
+[ext_resource path="res://Art/Pac_Person9.png" type="Texture" id=7]
+[ext_resource path="res://Art/Pac_Person6.png" type="Texture" id=8]
+[ext_resource path="res://Art/Pac_Person5.png" type="Texture" id=9]
+[ext_resource path="res://Art/Pac_Person7.png" type="Texture" id=10]
+[ext_resource path="res://Art/Pac_Person8.png" type="Texture" id=11]
+
+[sub_resource type="StreamTexture" id=3]
+load_path = "res://.import/Pac_Person.png-7d9c1e7519d40f75c89c64e791e9f634.stex"
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ SubResource( 3 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 11 ), null, ExtResource( 7 ), null, ExtResource( 7 ), null ],
+"loop": false,
+"name": "die",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "eating",
+"speed": 15.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 6.0
+
+[node name="Pac-Man" type="KinematicBody2D"]
+position = Vector2( 264, 212 )
+collision_layer = 5
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "idle"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 0.99, 0.99 )
+shape = SubResource( 2 )
+
+[node name="Dead" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+pitch_scale = 1.15

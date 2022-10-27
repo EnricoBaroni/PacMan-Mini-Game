@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Uhht.wav-6e41a0f73bca268049352fa0b375f6d8.sample"
+
+[deps]
+
+source_file="res://Sounds/Uhht.wav"
+dest_files=[ "res://.import/Uhht.wav-6e41a0f73bca268049352fa0b375f6d8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
